@@ -21,8 +21,8 @@ This is a responsive Angular-based product catalog application with features lik
 
 ## Prerequisites
 Ensure that you have the following installed on your system:
-- [Node.js](https://nodejs.org/en/download/) (version 14 or higher)
-- [Angular CLI](https://angular.io/cli) (version 12 or higher)
+- [Node.js](https://nodejs.org/en/download/) (version 16)
+- [Angular CLI](https://angular.io/cli) (version 14)
 
 You can verify the installed versions with:
 ```bash
@@ -31,7 +31,6 @@ npm -v
 ng version
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
 
 ## Development server
 
