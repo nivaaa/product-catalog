@@ -1,0 +1,15 @@
+<!-- <div class="sort">
+    <label>
+      Sort by:
+      <select (change)="sortProducts($event)">
+        <option value="asc">Price: Low to High</option>
+        <option value="desc">Price: High to Low</option>
+      </select>
+    </label>
+  </div>
+   -->
+
+   <select (change)="onSortChange($event)">
+    <option value="asc">Price: Low to High</option>
+    <option value="desc">Price: High to Low</option>
+  </select>

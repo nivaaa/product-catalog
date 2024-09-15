@@ -1,0 +1,15 @@
+<app-filter (filterChange)="filterByCategory($event)"></app-filter>
+<app-sort (sortChange)="sortByPrice($event)"></app-sort>
+
+<div class="product-grid">
+  <div *ngFor="let product of filteredProducts" class="product-item">
+    <img [src]="product.image" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <p>\${{ product.price }}</p>
+  </div>
+</div>
+
+<div *ngIf="filteredProducts.length === 0">
+    <p>No products match your criteria.</p>
+  </div>
+  

@@ -1,0 +1,29 @@
+<!-- <div class="filter">
+    <label>
+      Category:
+      <select (change)="filterByCategory($event)">
+        <option value="">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+      </select>
+    </label>
+  
+    <label>
+      Price Range:
+      <select (change)="filterByPrice($event)">
+        <option value="">All</option>
+        <option value="0-50">0 - 50</option>
+        <option value="51-200">51 - 200</option>
+        <option value="201-1000">201 - 1000</option>
+      </select>
+    </label>
+  </div>
+   -->
+
+   <select (change)="onFilterChange($event)">
+    <option value="">All</option>
+    <option value="electronics">Electronics</option>
+    <option value="clothing">Clothing</option>
+    <option value="shoes">Shoes</option>
+    <!-- <option value=""></option> -->
+  </select>
