@@ -8,6 +8,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { AboutComponent } from './about/about.component';
 import { FilterComponent } from './filter/filter.component';
 import { SortComponent } from './sort/sort.component';
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SortComponent } from './sort/sort.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

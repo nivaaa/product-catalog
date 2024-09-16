@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -6,19 +6,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-  // @Output() categoryFilter = new EventEmitter<string>();
-  // @Output() priceFilter = new EventEmitter<string>();
 
   @Output() filterChange = new EventEmitter<string>();
-
-
-  // filterByCategory(event: any) {
-  //   this.categoryFilter.emit(event.target.value);
-  // }
-
-  // filterByPrice(event: any) {
-  //   this.priceFilter.emit(event.target.value);
-  // }
+  @Input() filterValue: any;
 
   onFilterChange(event:any) {
     let target = (event.target as HTMLInputElement)

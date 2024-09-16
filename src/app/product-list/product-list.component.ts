@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductListService } from '../services/product-list.service';
 
 interface Product {
   name: string;
@@ -7,12 +8,20 @@ interface Product {
   category: string;
 }
 
+interface ProductList {
+  userId: string;
+  id: number;
+  title: string;
+  completed: string;
+}
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+
   products: Product[] = [
     { name: 'Laptop', image: '../assests/laptop.png', price: 60000, category: 'electronics' },
     { name: 'T-Shirt', image: 'tshirt.png', price: 19, category: 'clothing' },
@@ -27,39 +36,24 @@ export class ProductListComponent implements OnInit {
     { name: 'Sneakers', image: '', price: 499, category: 'shoes'}
   ];
 
-  filteredProducts: Product[] = this.products;
+  filteredProducts: ProductList[] = [];
+  masterFilteredProducts: ProductList[] = [];
 
-  constructor() { }
+  constructor(public productListService: ProductListService) { }
 
-  ngOnInit(): void { }
-
-
-
-
-filterByPrice(priceRange: string) {
-  if (!priceRange) {
-    this.filteredProducts = this.products;
-    return;
+  ngOnInit(): void {
+    this.productListService.getProductDetails().subscribe((res: any)=> {
+      this.masterFilteredProducts = structuredClone(res);
+      this.filteredProducts = res
+    })
   }
 
-  const [min, max] = priceRange.split('-').map(Number);
-  this.filteredProducts = this.products.filter(product =>
-    product.price >= min && product.price <= max
-  );
-}
-
-sortProducts(order: string) {
-  this.filteredProducts.sort((a, b) =>
-    order === 'asc' ? a.price - b.price : b.price - a.price
-  );
-}
-
-filterByCategory(category: string) {
-  this.filteredProducts = category.length ? this.products.filter(p => p.category === category) : this.products;
+filterByCategory(title: string) {
+  this.filteredProducts = title.length ? this.masterFilteredProducts.filter((p:ProductList) => p.title === title) : this.masterFilteredProducts;
 }
 
 sortByPrice(order: string) {
-  this.filteredProducts = this.filteredProducts.sort((a, b) => order === 'asc' ? a.price - b.price : b.price - a.price);
+  this.filteredProducts = this.filteredProducts.sort((a, b) => order === 'asc' ? a.id - b.id : b.id - a.id);
 }
 
 }

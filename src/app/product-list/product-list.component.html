@@ -1,11 +1,13 @@
-<app-filter (filterChange)="filterByCategory($event)"></app-filter>
-<app-sort (sortChange)="sortByPrice($event)"></app-sort>
+<div class="productFilterContainer">
+  <div class="productFilter"><app-filter (filterChange)="filterByCategory($event)" [filterValue]="masterFilteredProducts"></app-filter></div>
+ <div class="productFilter"> <app-sort (sortChange)="sortByPrice($event)"></app-sort></div>
+</div>
 
 <div class="product-grid">
   <div *ngFor="let product of filteredProducts" class="product-item">
-    <img [src]="product.image" alt="{{ product.name }}">
-    <h3>{{ product.name }}</h3>
-    <p>\${{ product.price }}</p>
+    <!-- <img [src]="product.image" alt="{{ product.name }}"> -->
+    <p class="title">{{ product.title | titlecase }}</p>
+    <p>{{ product.id }}- $</p>
   </div>
 </div>
 

@@ -1,0 +1,15 @@
+.productFilter{
+    margin: 10px; 
+    display: flex;
+}
+
+.productFilterContainer{
+    display: flex;
+    margin-top: 10px;
+}
+
+.title{
+    width: 100%;
+    overflow:hidden;
+    text-overflow: inherit;
+}
